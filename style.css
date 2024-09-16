@@ -22,22 +22,6 @@ html {
         text-decoration: none;
     }
 
-    a:link {
-        color: #fafafa;
-    }
-
-    a:visited {
-        color: #fafafa;
-    }
-
-    a:hover {
-        color: #ff4d5a;
-    }
-
-    a:active {
-        color: #feda4a;
-    }
-
     h1 {
         color: #4beed0;
         font-size: 2rem;
@@ -64,6 +48,26 @@ html {
     }
 }
 
+.clickable-link a {
+    color: #feda4a;
+
+    &:link, &:visited {
+        color: #feda4a;
+    }
+
+    &:hover {
+        color: #4beed0;
+    }
+
+    &:active {
+        color: #ff4d5a;
+    }
+}
+
+/* .title-offset {
+    color: #feda4a;
+} */
+
 .nav-bar {
     text-align: right;
     position: sticky;
@@ -75,6 +79,22 @@ html {
 
 .nav-bar a {
     padding: 0 0.5rem;
+}
+
+.nav-bar a {
+    color: #fafafa;
+
+    &:link, &:visited {
+        color: #fafafa;
+    }
+
+    &:hover {
+        color: #ff4d5a;
+    }
+
+    &:active {
+        color: #feda4a;
+    }
 }
 
 .section {
@@ -94,13 +114,8 @@ html {
     text-align: center;
 }
 
-#resume-link a{
-    color: #feda4a;
+#resume-link a {
     font-size: 1.25rem;
-}
-
-#resume-link a:hover {
-    color: #4beed0;
 }
 
 #interests {
