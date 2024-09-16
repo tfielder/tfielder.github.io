@@ -1,0 +1,151 @@
+/* 
+Notes:
+other colors - 
+#ff4d5a; -red
+#feda4a; - golen yellow
+#ff6; -canary yellow
+rgb(75, 213, 238) -robin blue
+#4beed0 -close-enough easter turquoise green
+
+Fonts 
+'News Cycle", sans-serif;' ex. 1
+'Pathway Gothic One', sans-serif; ex. 2
+*/
+
+/* Base Styling */
+html {
+    background-color: black;
+    color: #fafafa;
+    font-family: montserrat, sans-serif;
+
+    a {
+        text-decoration: none;
+    }
+
+    a:link {
+        color: #fafafa;
+    }
+
+    a:visited {
+        color: #fafafa;
+    }
+
+    a:hover {
+        color: #ff4d5a;
+    }
+
+    a:active {
+        color: #feda4a;
+    }
+
+    h1 {
+        color: #4beed0;
+        font-size: 2rem;
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        margin: 0.25rem 0 1rem 0;
+    }
+
+    h3 {
+        font-style: italic;
+        margin: 1rem 0;
+    }
+    
+    li {
+        margin: .25rem 0;
+    }
+
+    p {
+        line-height: normal;
+    }
+}
+
+.nav-bar {
+    text-align: right;
+    position: sticky;
+    top: 0;
+    background-color: rgba(40, 40, 40, 0.95);
+    color: #fafafa;
+    padding: 1rem;
+}
+
+.nav-bar a {
+    padding: 0 0.5rem;
+}
+
+.section {
+    padding: 1rem 10%;
+}
+
+#home-section {
+    text-align: center;
+}
+
+#about-content {
+    margin: 0 20%;
+    text-align: center;
+}
+
+#resume-link {
+    text-align: center;
+}
+
+#resume-link a{
+    color: #feda4a;
+    font-size: 1.25rem;
+}
+
+#resume-link a:hover {
+    color: #4beed0;
+}
+
+#interests {
+    text-align: center;
+}
+
+.work-history-item {
+    margin-bottom: 2.75rem;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.work-history-item-title {
+    font-size: 1.25rem;
+}
+
+.work-history-item-subtitle {
+    font-style: italic;
+    margin: 0.5rem 0 .75rem 0;
+}
+
+.work-history-item-last {
+    margin-bottom: 0rem;
+}
+
+#education {
+    text-align: center;
+}
+
+.education-item {
+    margin-top: 1.5rem;
+}
+
+.connect-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: .5rem;
+}
+.connect-type {
+    font-style: italic;
+    margin: 0 .75rem 0 0;
+}
+
+#footer {
+    padding: 1rem 2rem;
+    text-align: right;
+}
