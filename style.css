@@ -64,7 +64,10 @@ html {
     }
 }
 
-.nav-bar {
+#nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     text-align: right;
     position: sticky;
     top: 0;
@@ -73,11 +76,12 @@ html {
     padding: 1rem;
 }
 
-.nav-bar a {
+#nav-bar a {
     padding: 0 0.5rem;
+    text-align: center;
 }
 
-.nav-bar a {
+#nav-bar a {
     color: #fafafa;
 
     &:link, &:visited {
