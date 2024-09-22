@@ -56,11 +56,11 @@ html {
     }
 
     &:hover {
-        color: #4beed0;
+        color: #ff4d5a;
     }
 
     &:active {
-        color: #ff4d5a;
+        color: #4beed0;   
     }
 }
 
@@ -139,6 +139,18 @@ html {
 
 .work-history-item-last {
     margin-bottom: 0rem;
+}
+
+#projects {
+    text-align: center;
+}
+
+.projects-item {
+    margin: 1.5rem 1rem;
+}
+
+.projects-item h2 {
+    margin: 0.25rem 0;
 }
 
 #education {
