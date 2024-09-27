@@ -127,6 +127,41 @@ html {
     }
 }
 
+.skip-link {
+    color: #feda4a;
+
+    &:link, &:visited {
+        color: #feda4a;
+    }
+
+    &:hover {
+        color: #ff4d5a;
+    }
+
+    &:active {
+        color: #4beed0;   
+    }
+}
+
+.skip-link-section {
+    padding: 4rem;
+    text-align: right;
+    animation: bounce .8s ease infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        text-shadow:
+                    0 5px 0 #ccc,
+                    0 2px 3px rgba(0, 0, 0, 1);  
+    }
+    100% {
+      transform: translateY(-20px);
+      text-shadow:  0 50px 0 #000,
+                    0 0px 20px rgba(0, 0, 0, .8);
+    }
+}
+
 #nav-bar {
     display: flex;
     flex-direction: row;
