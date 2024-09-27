@@ -134,10 +134,6 @@ html {
         color: #feda4a;
     }
 
-    &:hover {
-        color: #ff4d5a;
-    }
-
     &:active {
         color: #4beed0;   
     }
