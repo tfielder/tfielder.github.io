@@ -49,66 +49,143 @@ html {
 }
 
 /* Galactic Battles Section */
-
 #hero-section {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #000;
+    width: 100%;
+    /* height: 100%; */
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+    /* position: absolute; */
+    /* top: 45%;
+    left: 50%; */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.galactic-battles {
+    height: 800px;
+    height: 100%;
+    perspective: 400px;
+    color: #feda4a;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 500%;
+    font-weight: 600;
+    letter-spacing: 6px;
+    line-height: 150%;
+    text-align: justify;
+}
+
+#intro {
+    color: rgb(75, 213, 238);
+    font-size: 200%;
+    font-weight: 400;
+    opacity: 0;
+    margin-top: 45vh;
+    animation: intro 6s ease-out 1s;
+}
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.my-logo {
+    font-size: 700%;
+    opacity: 0;
+    text-align: center;
+    animation: my-logo 9s ease-out 9s;
+}
+
+@keyframes my-logo {
+    0% { 
+        width: 40em;
+        margin: (- 40em / 2) 0 0 (- 40em / 2);
+        transform: scale(2.75); 
+        opacity: 1; 
     }
 
-    .galactic-battles {
-        display: flex;
-        justify-content: center;
-        height: 800px;
-        perspective: 400px;
-        color: #feda4a;
-        font-family: 'Pathway Gothic One', sans-serif;
-        font-size: 500%;
-        font-weight: 600;
-        letter-spacing: 6px;
-        line-height: 150%;
-        text-align: justify;
+    50% { 
+        width: 40em;
+        margin: (- 40em / 2) 0 0 (- 40em / 2);
+        opacity: 1; 
     }
 
-    .crawl {
-        position: relative;
-        top: 9999px;
-        transform-origin: 50% 100%;
-        animation: crawl 60s linear;
+    100% {
+        transform: scale(.1); 
+        opacity: 0;
+        width: 40em;
+        margin: (- 40em / 2) 0 0 (- 40em / 2);
     }
+}
 
-    .crawl-title {
-        color: #feda4a;
-        font-size: 200%;
-        text-align: center;
-        text-transform: uppercase;
-      }
-      
-    .crawl-title p {
-        margin: 0 0 100px;
+.fade {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    top: -25px;
+    background-image: linear-gradient(0deg, transparent, black 75%);
+    z-index: 1;
+    opacity: 0;
+    animation: fade 60s linear 15s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
     }
-
-    .fade {
-        position: relative;
-        width: 100%;
-        min-height: 60vh;
-        top: -25px;
-        background-image: linear-gradient(0deg, transparent, black 75%);
-        z-index: 1;
+    30% {
+        opacity: 1;
     }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
-    @keyframes crawl {
-        0% {
-          top: 0;
-          transform: rotateX(20deg) translateZ(0);
-        }
-        100% { 
-          top: -6000px;
-          transform: rotateX(25deg) translateZ(-2500px);
-        }
-      }
+.crawl {
+    position: relative;
+    top: 9999px;
+    transform-origin: 50% 100%;
+    /* animation: crawl 60s linear; */
+    /* animation: crawl 81s linear 13s; */
+    animation: crawl 60s linear 15s;
+}
 
+.crawl-title {
+    color: #feda4a;
+    font-size: 200%;
+    text-align: center;
+    text-transform: uppercase;
+    }
+    
+.crawl-title p {
+    margin: 0 0 100px;
+}
+
+@keyframes crawl {
+    0% {
+        top: 0;
+        transform: rotateX(20deg) translateZ(0);
+    }
+    100% { 
+        top: -6000px;
+        transform: rotateX(25deg) translateZ(-2500px);
+    }
+}
 /* End Galactic Battles Section */
 
 .clickable-link a {
