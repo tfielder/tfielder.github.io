@@ -67,7 +67,8 @@ html {
 .galactic-battles {
     height: 800px;
     height: 100%;
-    perspective: 400px;
+    /* perspective: 400px; */
+    perspective: 30rem;
     color: #feda4a;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 500%;
@@ -103,10 +104,24 @@ html {
 }
 
 .my-logo {
+    color: #000;
     font-size: 700%;
     opacity: 0;
     text-align: center;
     animation: my-logo 9s ease-out 9s;
+    position: absolute;
+    top: 15rem;
+    text-shadow:
+    3px 3px 2px #feda4a,
+    -3px 3px 2px #feda4a,
+    -3px -3px 0 #feda4a,
+    3px -3px 0 #feda4a;
+}
+
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 @keyframes my-logo {
