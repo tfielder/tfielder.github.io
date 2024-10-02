@@ -79,13 +79,16 @@ html {
 }
 
 #intro {
+    margin-top: 45vh;
+    opacity: 0;
+    animation: intro 6s ease-out 1s;
+}
+
+.hero-intro-text {
     color: rgb(75, 213, 238);
     font-size: 200%;
     font-weight: 400;
     line-height: 1.5;
-    opacity: 0;
-    margin-top: 45vh;
-    animation: intro 6s ease-out 1s;
 }
 
 @keyframes intro {
@@ -204,6 +207,26 @@ html {
         transform: rotateX(25deg) translateZ(-2500px);
     }
 }
+
+#scroll-message {
+    opacity: 1;
+    padding-top: 5rem;
+    animation: outro 80s;
+}
+
+@keyframes outro {
+    0% {
+        opacity: 0
+    }
+    90% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+
 /* End Galactic Battles Section */
 
 .clickable-link a {
