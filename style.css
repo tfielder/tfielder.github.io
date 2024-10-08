@@ -392,6 +392,11 @@ html {
     margin-top: 1.5rem;
 }
 
+.education-item h2 {
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
 .connect-item {
     display: flex;
     flex-direction: row;
