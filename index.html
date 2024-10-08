@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style_reset.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="main-page-wrapper">
@@ -26,31 +27,39 @@
                 <a href="#home-section" class="skip-link">skip</a>
             </div> -->
             <div id="hero-section" class="hero">
-                <div id="intro" class="hero-intro-text">
-                    A short time ago, in a galaxy very,<br> very close....
+                <audio preload="auto">
+                    <source src="main-theme-one.mp3" type="audio/mpeg"/>
+                </audio>
+                <div id="start" class="hero-start-text">
+                    <p>Click here to begin</p>
                 </div>
-                <div id="scroll-message" class="hero-intro-text">
-                    Scroll down to continue your journey
-                </div>
-                <div class="my-logo roboto-bold">TIM<br> FIELDER</div>
-                <!-- <div class="fade"></div> -->
-                <div class="galactic-battles">
-                    <div class="crawl">
-                        <div class="crawl-title">
-                            <p>Episode IV</p>
-                            <p>A Newer Hope</p>
+                <div id="animation">
+                    <div id="intro" class="intro hero-intro-text">
+                        A short time ago, in a galaxy very,<br> very close....
+                    </div>
+                    <!-- <div id="scroll-message" class="hero-intro-text">
+                        Scroll down to continue your journey
+                    </div> -->
+                    <div class="my-logo roboto-bold">TIM<br> FIELDER</div>
+                    <div class="fade"></div>
+                    <div class="galactic-battles">
+                        <div class="crawl">
+                            <div class="crawl-title">
+                                <p>Episode IV</p>
+                                <p>A Newer Hope</p>
+                            </div>
+                            <p>Hi, I'm Tim, a software engineer from Denver, Colorado.</p><br>
+                            <p>I love learning and supporting others in achieving their goals through technology.</p><br>
+                            <p>
+                                As a self-starter and motivated developer, I bring my unique mix of skills, talents, and interests to create an open,
+                                inclusive, positive, and productive work environment.
+                            </p><br>
+                            <p>I have a passion for investigating new technologies and sharing them with my team.</p><br>
+                            <p>
+                                I also love traveling and languages, fitness, economics, machine learning and data science, and above all, 
+                                learning new things...
+                            </p>
                         </div>
-                        <p>Hi, I'm Tim, a software engineer from Denver, Colorado.</p><br>
-                        <p>I love learning and supporting others in achieving their goals through technology.</p><br>
-                        <p>
-                            As a self-starter and motivated developer, I bring my unique mix of skills, talents, and interests to create an open,
-                            inclusive, positive, and productive work environment.
-                        </p><br>
-                        <p>I have a passion for investigating new technologies and sharing them with my team.</p><br>
-                        <p>
-                            I also love traveling and languages, fitness, economics, machine learning and data science, and above all, 
-                            learning new things...
-                        </p>
                     </div>
                 </div>
             </div>
@@ -222,6 +231,6 @@
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="index.js" type="text/javascript"></script>
   </body>
 </html>
