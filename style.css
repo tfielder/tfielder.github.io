@@ -296,15 +296,18 @@ html {
 }
 
 #nav-bar {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: right;
-    text-align: right;
+    text-align: right; */
+    /* position: fixed;
+    top: 0; */
     position: sticky;
-    top: 0;
     background-color: rgba(40, 40, 40, 0.95);
     color: #fafafa;
     padding: 0.75rem 1rem;
+    /* width: 100%; */
+    /* z-index: 999; */
 }
 
 #nav-bar a {
@@ -326,6 +329,11 @@ html {
     &:active {
         color: #feda4a;
     }
+}
+
+#nav-bar a.menu-icon {
+    display: none;
+    color: #fafafa;
 }
 
 .section {
@@ -411,4 +419,47 @@ html {
 #footer {
     padding: 1rem 2rem;
     text-align: right;
+}
+
+/* Media Breakpoints for responsive design */
+
+/* smaller than a landscape tablet */
+@media only screen and (max-width: 768px) {
+    #nav-bar a:not(:first-child) { 
+        display: none;
+    }
+
+    #nav-bar a.menu-icon {
+        float: right;
+        display: block;
+        padding: .125rem 1.5rem;
+    }
+
+    #nav-bar.responsive {
+        position: sticky;
+    }
+
+    #nav-bar.responsive a.menu-icon {
+        padding: .75rem 1.25rem;
+        position: absolute;
+        right: 1.5rem;
+        top: .125rem;
+    }
+
+    #nav-bar.responsive a {
+        float: none;
+        display: block;
+        padding: .5rem .5rem;
+        text-align: left;
+    }
+}
+
+/* tablets */
+@media only screen and (max-width: 992px) {
+
+}
+
+/* desktop and larger */
+@media only screen and (min-width: 992px) {
+
 }
