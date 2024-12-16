@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tim Fielder - Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style_reset.css">
@@ -14,14 +15,19 @@
   <body>
     <div class="main-page-wrapper">
         <div id="home"></div>
-        <div id="nav-bar">
-            <a href="#home" class="nav-bar-link">Home</a>
-            <a href="#about" class="nav-bar-link">About</a>
-            <a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer" class="nav-bar-link">Resume</a>
-            <a href="#work-history" class="nav-bar-link">Work History</a>
-            <a href="#projects" class="nav-bar-link">Projects</a>
-            <a href="#education" class="nav-bar-link">Education</a>
-            <a href="#connect" class="nav-bar-link">Connect</a>
+        <div id="nav-bar-container">
+            <div id="nav-bar" class="topnav">
+                <a href="#home" class="nav-bar-link" onclick="closeMenuBar()">Home</a>
+                <a href="#about" class="nav-bar-link" onclick="closeMenuBar()">About</a>
+                <a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer" class="nav-bar-link" onclick="closeMenuBar()">Resume</a>
+                <a href="#work-history" class="nav-bar-link" onclick="closeMenuBar()">Work History</a>
+                <a href="#projects" class="nav-bar-link" onclick="closeMenuBar()">Projects</a>
+                <a href="#education" class="nav-bar-link" onclick="closeMenuBar()">Education</a>
+                <a href="#connect" class="nav-bar-link" onclick="closeMenuBar()">Connect</a>
+                <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenuBar()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
         </div>
         <div class="main-body">
             <!-- <div class="skip-link-section">
