@@ -425,7 +425,7 @@ html {
 
 /* Media Breakpoints for responsive design */
 
-/* smaller than a landscape tablet */
+/* SMALLER THAN A TABLET, PHONES */
 @media only screen and (max-width: 768px) {
     #nav-bar a:not(:first-child) { 
         display: none;
@@ -434,7 +434,7 @@ html {
     #nav-bar a.menu-icon {
         float: right;
         display: block;
-        padding: .125rem 1.5rem;
+        padding-right: 2rem;
     }
 
     #nav-bar.responsive a.menu-icon {
@@ -451,14 +451,27 @@ html {
         padding: .5rem .5rem;
         text-align: left;
     }
+
+    #about-content {
+        margin: 0;
+    }
+
+    .work-history-item {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .education-item h2 {
+        line-height: 1.625rem;
+    }
 }
 
-/* tablets */
+/* TABLETS */
 @media only screen and (max-width: 992px) {
 
 }
 
-/* desktop and larger */
+/* DESKTOP AND LARGER */
 @media only screen and (min-width: 992px) {
 
 }
