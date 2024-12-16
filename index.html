@@ -15,17 +15,19 @@
   <body>
     <div class="main-page-wrapper">
         <div id="home"></div>
-        <div id="nav-bar" class="topnav">
-            <a href="#home" class="nav-bar-link">Home</a>
-            <a href="#about" class="nav-bar-link">About</a>
-            <a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer" class="nav-bar-link">Resume</a>
-            <a href="#work-history" class="nav-bar-link">Work History</a>
-            <a href="#projects" class="nav-bar-link">Projects</a>
-            <a href="#education" class="nav-bar-link">Education</a>
-            <a href="#connect" class="nav-bar-link">Connect</a>
-            <a href="javascript:void(0);" class="menu-icon" onclick="menuIconFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
+        <div id="nav-bar-container">
+            <div id="nav-bar" class="topnav">
+                <a href="#home" class="nav-bar-link" onclick="closeMenuBar()">Home</a>
+                <a href="#about" class="nav-bar-link" onclick="closeMenuBar()">About</a>
+                <a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer" class="nav-bar-link" onclick="closeMenuBar()">Resume</a>
+                <a href="#work-history" class="nav-bar-link" onclick="closeMenuBar()">Work History</a>
+                <a href="#projects" class="nav-bar-link" onclick="closeMenuBar()">Projects</a>
+                <a href="#education" class="nav-bar-link" onclick="closeMenuBar()">Education</a>
+                <a href="#connect" class="nav-bar-link" onclick="closeMenuBar()">Connect</a>
+                <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenuBar()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
         </div>
         <div class="main-body">
             <!-- <div class="skip-link-section">

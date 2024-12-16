@@ -295,19 +295,21 @@ html {
     }
 }
 
-#nav-bar {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: right;
-    text-align: right; */
-    /* position: fixed;
-    top: 0; */
+#nav-bar-container {
     position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: rgba(40, 40, 40, 0.95);
     color: #fafafa;
     padding: 0.75rem 1rem;
-    /* width: 100%; */
-    /* z-index: 999; */
+    width: 100%;
+    z-index: 999;
 }
 
 #nav-bar a {
@@ -435,15 +437,12 @@ html {
         padding: .125rem 1.5rem;
     }
 
-    #nav-bar.responsive {
-        position: sticky;
-    }
-
     #nav-bar.responsive a.menu-icon {
         padding: .75rem 1.25rem;
         position: absolute;
         right: 1.5rem;
         top: .125rem;
+        z-index: 9998;
     }
 
     #nav-bar.responsive a {
