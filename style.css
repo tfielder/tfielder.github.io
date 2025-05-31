@@ -62,7 +62,9 @@ html {
     }
 
     &:hover {
-        color: #ff4d5a;
+        /* color: #ff4d5a; */
+        /* color: #0693e3; */
+        color: #4CB7F6;
     }
 
     &:active {
@@ -100,7 +102,9 @@ html {
     }
 
     &:hover {
-        color: #ff4d5a;
+        /* color: #ff4d5a; */
+        /* color: #0693e3; */
+        color: #4CB7F6;
     }
 
     &:active {
