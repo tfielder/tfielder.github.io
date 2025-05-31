@@ -122,6 +122,7 @@ html {
 }
 
 #home-section {
+    padding-top: 8rem;
     text-align: center;
 }
 
@@ -201,6 +202,26 @@ html {
     padding: 1rem 2rem;
     text-align: right;
 }
+
+/* Video element */
+.video-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -2;
+    height: 100%;
+    width: 100%;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
 
 /* Media Breakpoints for responsive design */
 
