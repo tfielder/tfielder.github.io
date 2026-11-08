@@ -1,113 +1,146 @@
 /* ============================================================
-   Galaxy / Star Field Background
+   Aurora Canvas Background — Perlin Noise Flow Field
    ============================================================ */
 (function () {
   const canvas = document.getElementById('aurora-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  const BG          = '#060b18';
-  const STAR_COUNT  = 300;
+  // Low-resolution offscreen canvas — scales up smoothly for perf
+  const off  = document.createElement('canvas');
+  const octx = off.getContext('2d');
 
-  // Nebula blobs — soft color clouds painted behind stars
-  const NEBULAE = [
-    { cx: 0.18, cy: 0.28, r: 0.38, color: [155,  93, 229], alpha: 0.055 }, // violet
-    { cx: 0.78, cy: 0.62, r: 0.32, color: [0,   255, 135], alpha: 0.040 }, // emerald
-    { cx: 0.52, cy: 0.12, r: 0.28, color: [75,  238, 208], alpha: 0.045 }, // teal
-    { cx: 0.88, cy: 0.18, r: 0.22, color: [120,  60, 220], alpha: 0.050 }, // deep violet
-    { cx: 0.35, cy: 0.80, r: 0.25, color: [190, 150, 255], alpha: 0.035 }, // lavender
-  ];
+  const RES   = 6;       // px per cell (lower = sharper, slower)
+  const SPEED = 0.00022; // time increment per frame
 
-  // Star color palette — mostly white/blue-white, rare color tints
-  const STAR_COLORS = [
-    [255, 255, 255],
-    [255, 255, 255],
-    [255, 255, 255],
-    [255, 255, 255],
-    [210, 225, 255],  // blue-white
-    [210, 225, 255],
-    [75,  238, 208],  // teal
-    [155,  93, 229],  // violet
-    [190, 150, 255],  // lavender
-  ];
+  let w, h, cols, rows, imgData, px;
+  let t = 0;
 
-  let w, h, stars = [];
+  /* --- Perlin noise ---------------------------------------- */
+  const perm  = new Uint8Array(512);
+  const GRADS = [[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]];
 
-  function rgba(c, a) {
-    return `rgba(${c[0]},${c[1]},${c[2]},${a.toFixed(3)})`;
+  (function seedNoise() {
+    const p = Array.from({ length: 256 }, (_, i) => i);
+    for (let i = 255; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [p[i], p[j]] = [p[j], p[i]];
+    }
+    for (let i = 0; i < 512; i++) perm[i] = p[i & 255];
+  })();
+
+  function fade(t)       { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function dot(g, x, y)  { return g[0] * x + g[1] * y; }
+
+  function noise(x, y) {
+    const X = Math.floor(x) & 255, Y = Math.floor(y) & 255;
+    x -= Math.floor(x); y -= Math.floor(y);
+    const u = fade(x), v = fade(y);
+    const A = perm[X] + Y, B = perm[X + 1] + Y;
+    return lerp(v,
+      lerp(u, dot(GRADS[perm[A]     & 7], x,     y),
+               dot(GRADS[perm[B]     & 7], x - 1, y)),
+      lerp(u, dot(GRADS[perm[A + 1] & 7], x,     y - 1),
+               dot(GRADS[perm[B + 1] & 7], x - 1, y - 1))
+    ); // -1 to 1
   }
 
-  function Star() {
-    this.x      = Math.random() * w;
-    this.y      = Math.random() * h;
-    this.r      = Math.random() < 0.82 ? 0.3 + Math.random() * 0.7   // small
-                                        : 1.1 + Math.random() * 1.0;  // occasional larger
-    this.color  = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
-    this.alpha  = 0.35 + Math.random() * 0.65;
-    this.twinkle   = Math.random() < 0.30;
-    this.phase     = Math.random() * Math.PI * 2;
-    this.pulseHz   = 0.012 + Math.random() * 0.018;
-    this.hasGlow   = this.r > 1.0;
-    this.glowR     = this.r * 7;
+  // 2-octave fBm for organic layering
+  function fbm(x, y) {
+    return noise(x, y) * 0.6 + noise(x * 2.1, y * 2.1) * 0.4;
   }
 
-  Star.prototype.draw = function () {
-    if (this.twinkle) this.phase += this.pulseHz;
-    const pulse = this.twinkle ? Math.sin(this.phase) * 0.5 + 0.5 : 1;
-    const a     = this.alpha * (this.twinkle ? 0.25 + pulse * 0.75 : 1);
+  /* --- Aurora color palette -------------------------------- */
+  const PAL = [
+    [  6,  11,  24],  // dark navy bg
+    [  6,  11,  24],  // still dark
+    [  0,  70,  40],  // deep dim green
+    [  0, 200, 100],  // mid emerald
+    [  0, 255, 135],  // bright emerald  #00FF87
+    [ 75, 238, 208],  // teal            #4beed0
+    [155,  93, 229],  // violet          #9B5DE5
+    [ 55,  18,  95],  // deep violet
+    [  6,  11,  24],  // back to bg
+  ];
 
-    if (this.hasGlow) {
-      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.glowR);
-      g.addColorStop(0, rgba(this.color, a * 0.55));
-      g.addColorStop(1, rgba(this.color, 0));
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.glowR, 0, Math.PI * 2);
-      ctx.fillStyle = g;
-      ctx.fill();
+  function colorAt(v) {
+    v = Math.max(0, Math.min(0.9999, v));
+    const f = v * (PAL.length - 1);
+    const i = Math.floor(f);
+    const m = f - i;
+    const a = PAL[i], b = PAL[i + 1];
+    return [
+      (a[0] + (b[0] - a[0]) * m) | 0,
+      (a[1] + (b[1] - a[1]) * m) | 0,
+      (a[2] + (b[2] - a[2]) * m) | 0,
+    ];
+  }
+
+  /* --- Resize --------------------------------------------- */
+  function resize() {
+    w    = canvas.width  = window.innerWidth;
+    h    = canvas.height = window.innerHeight;
+    cols = Math.ceil(w / RES) + 1;
+    rows = Math.ceil(h / RES) + 1;
+    off.width  = cols;
+    off.height = rows;
+    imgData = octx.createImageData(cols, rows);
+    px      = imgData.data;
+  }
+
+  /* --- Draw loop ------------------------------------------ */
+  function draw() {
+    t += SPEED;
+
+    for (let y = 0; y < rows; y++) {
+      const ny = y / rows;
+
+      // Vertical mask: aurora band peaks around 35% from top, fades toward edges
+      const vMask = Math.pow(Math.max(0, Math.sin(ny * Math.PI * 1.1)), 1.5);
+
+      for (let x = 0; x < cols; x++) {
+        const nx = x / cols;
+
+        // Primary intensity — slow horizontal drift over time
+        const n1 = fbm(nx * 2.5 + t, ny * 1.8);
+
+        // Color variation — different drift axis for independent color shift
+        const n2 = fbm(nx * 2.0 - t * 0.55 + 40, ny * 2.5 + 20);
+
+        // Intensity: 0–1, shaped by vertical mask
+        const intensity = ((n1 + 1) / 2) * vMask;
+
+        // Color blend: mix of intensity and independent color noise
+        const colorV = intensity * 0.55 + ((n2 + 1) / 2) * 0.45;
+
+        const [r, g, b] = intensity > 0.1 ? colorAt(colorV) : PAL[0];
+
+        const i = (y * cols + x) * 4;
+        px[i]     = r;
+        px[i + 1] = g;
+        px[i + 2] = b;
+        px[i + 3] = 255;
+      }
     }
 
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.fillStyle = rgba(this.color, a);
-    ctx.fill();
-  };
+    octx.putImageData(imgData, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(off, 0, 0, w, h);
 
-  function drawNebulae() {
-    NEBULAE.forEach(n => {
-      const cx = n.cx * w;
-      const cy = n.cy * h;
-      const r  = n.r  * Math.min(w, h);
-      const g  = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-      g.addColorStop(0, rgba(n.color, n.alpha));
-      g.addColorStop(1, rgba(n.color, 0));
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.fillStyle = g;
-      ctx.fill();
-    });
+    requestAnimationFrame(draw);
   }
 
-  function init() {
-    stars = Array.from({ length: STAR_COUNT }, () => new Star());
-  }
+  // Animation disabled — solid background only
+  // window.addEventListener('resize', resize);
+  // resize();
+  // requestAnimationFrame(draw);
 
-  function loop() {
-    ctx.fillStyle = BG;
-    ctx.fillRect(0, 0, w, h);
-    drawNebulae();
-    stars.forEach(s => s.draw());
-    requestAnimationFrame(loop);
-  }
-
-  function resize() {
-    w = canvas.width  = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-  init();
-  requestAnimationFrame(loop);
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ctx.fillStyle = '#060b18';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 })();
 
 
