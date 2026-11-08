@@ -8,232 +8,303 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style_reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_reset.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="main-page-wrapper">
-        <div id="home"></div>
-        <div id="nav-bar-container">
-            <div id="nav-bar" class="topnav">
-                <a href="#home" class="nav-bar-link" onclick="closeMenuBar()">Home</a>
-                <a href="#about" class="nav-bar-link" onclick="closeMenuBar()">About</a>
-                <a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer" class="nav-bar-link" onclick="closeMenuBar()">Resume</a>
-                <a href="#work-history" class="nav-bar-link" onclick="closeMenuBar()">Work History</a>
-                <a href="#projects" class="nav-bar-link" onclick="closeMenuBar()">Projects</a>
-                <a href="#education" class="nav-bar-link" onclick="closeMenuBar()">Education</a>
-                <a href="#connect" class="nav-bar-link" onclick="closeMenuBar()">Connect</a>
-                <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenuBar()">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
-        <div class="main-body">
-            <div class="video-container">
-                <video 
-                    class="video-class"
-                    autoplay=""
-                    muted=""
-                    playsinline=""
-                    loop=""
-                    src="vecteezy_seamless-loop-galaxy-exploration-through-outer-space-towards_23887107.mp4"
-                >
-            </div>
-            <div id="second-section">
-                <div id="home-section" class="home section">
-                    <h1>I'm Tim, a Full-Stack Software Engineer</h1> 
-                    <h1>from Denver, Colorado.</h1>
-                </div>
-                <div id="resume" class="resume section">
-                    <h1>Resume</h1>
-                    <div id="resume-link" class="clickable-link"><a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a></div>
-                </div>
-                <div id="about"></div>
-                <div id="about-section" class="about section">
-                    <h1>About</h1>
-                    <div id="about-content">
-                        <p>
-                            Full-stack Software Engineer with 7+ years of experience building scalable web applications using Ruby on Rails, JavaScript, React, and Next.js.
-                            Proven ability to deliver reliable, test-driven code in Agile/Scrum environments with a focus on continuous delivery.
-                            Experienced across the full software development lifecycle; from RESTful API design and database architecture to front-end performance optimization and cloud deployment on AWS and Azure.
-                            Strong collaborator with a track record of code reviews, cross-functional teamwork, and measurable quality improvements.
-                        </p>
-                    </div>
-                </div>
-                <div id="work-history" class="work-history section">
-                    <h1>Work History</h1>
-                    <div class="work-history-content">
-                        <div class="work-history-list">
-                             <div class="work-history-item">
-                                <div class="work-history-item-title">American Financing Corporation | Ruby on Rails Developer</div class="work-history-item-title">
-                                <div class="work-history-item-subtitle">Software Engineer | Ruby on Rails Developer - (Jan. 2026 - Present)</div>
-                                <ul>
-                                    <li>Designing and maintaining both public-facing and internal Ruby on Rails and React/TypeScript, Next.js, Tailwind, full-stack applications supporting mortgage operations for an Inc. 5000 top-50 company</li>
-                                    <li>Developing a greenfield borrower portal using React, TypeScript, Ruby on Rails, MongoDB NoSQL delivering an improved end-to-end loan application experience for customers</li>
-                                    <li>Building a greenfield leads management application to streamline lead capture and routing workflows for sales teams</li>
-                                    <li>Implementing Generative Engine Optimization (GEO) and Search Engine Optimization (SEO) improvements across web properties to increase organic traffic and improve regional search visibility with Google Tag Management integration</li>
-                                    <li>Accelerating development velocity by integrating AI-assisted workflows using Claude Code, reducing iteration time and improving code quality</li>
-                                    <li>Developing internal marketing tooling features using Ruby on Rails and SQL to support campaign tracking and operational reporting</li>
-                                    <li>Increasing test coverage from approximately 65% to 94% by writing comprehensive RSpec unit and integration tests, significantly improving system reliability and quality</li>
-                                </ul>
-                            </div>
-                            <div class="work-history-item">
-                                <div class="work-history-item-title">Arapahoe Libraries</div class="work-history-item-title">
-                                <div class="work-history-item-subtitle">Technology Specialist - (Oct. 2025 - Jan. 2026)</div>
-                                <ul>
-                                    <li>Provided community digital services and technology support while maintaining active professional development in software engineering</li>
-                                    <li>Designed, automated, and launched a workflow for standardized communication with patrons at scale</li>
-                                </ul>
-                            </div>
-                            <div class="work-history-item">
-                                <div class="work-history-item-title">Professional Development - AI & Software Engineering</div class="work-history-item-title">
-                                <div class="work-history-item-subtitle">Self-Directed - (Sep. 2024 - Oct. 2025)</div>
-                                <ul>
-                                    <li>Completed “Building AI Agents: Advanced Topics for Developers”</li>
-                                    <li>Completed “Hands-on AI: Building AI Agents with MCP”</li>
-                                    <li>Completed “Build AI Agents and Automate Workflow with n8n”</li>
-                                    <li>Completed “Machine Learning With Python”</li>
-                                    <li>Studied Clean Code (Robert C. Martin)</li>
-                                    <li>Studied Design Patterns (Gamma, Helm, Johnson, Vlissides)</li>
-                                </ul>
-                            </div>
-                            <div class="work-history-item">
-                                <div class="work-history-item-title">Verisys Corporation</div class="work-history-item-title">
-                                <div class="work-history-item-subtitle">Software Engineer - (Sep. 2023 - Sep. 2024)</div>
-                                <ul>
-                                    <li>Created, maintained, and enhanced Ruby on Rails API microservices supporting credentialing, monitoring, and data services for 400+ healthcare organizations</li>
-                                    <li>Developed and optimized ActiveRecord and PostgreSQL database migrations, stored procedures, and table triggers to support complex data workflows</li>
-                                    <li>Implemented AWS Lambda functions to handle asynchronous data processing and reduce load on core application services</li>
-                                    <li>Supported AWS infrastructure including application monitoring, product deployments, and service health across cloud environments</li>
-                                    <li>Collaborated with engineers and stakeholders in Scrum/Agile ceremonies to define tasks, deliver incremental functionality, and maintain software engineering best practices</li>
-                                    <li>Participated in code reviews, providing constructive feedback and contributing to team knowledge sharing</li>
-                                </ul>
-                            </div>
-                            <div class="work-history-item">
-                                <div class="work-history-item-title">MediaNews Group</div class="work-history-item-title">
-                                <div class="work-history-item-subtitle">Software Engineer - (Mar. 2023 - Sep. 2023)</div>
-                                <ul>
-                                    <li>Built and maintained RESTful APIs on a cross-functional Agile team with a continuous delivery focus for digital subscription and user authorization platforms</li>
-                                    <li>Integrated third-party subscription platforms to support revenue growth across local news organizations</li>
-                                    <li>Developed application features using Ruby on Rails, JavaScript, and WordPress with a focus on front-end performance optimization and DOM manipulation</li>
-                                    <li>Leveraged PostgreSQL and Ruby scripting to integrate user accounts from one database to another ensuring account consistency</li>
-                                    <li>Collaborated with product owners, scrum masters, and offshore engineering teams to translate business requirements into production-ready code</li>
-                                </ul>
-                            </div>
-                            <div class="work-history-item">
-                                <div class="work-history-item-title">American Financing Corporation</div class="work-history-item-title">    
-                                <div class="work-history-item-subtitle">Software Engineer - (May. 2021 - Nov. 2022)</div>
-                                <ul>
-                                    <li>Designed and developed Ruby on Rails web applications, RESTful APIs, C#/.NET applications, and internal reporting tools supporting mortgage operations for an Inc. 5000 top-50 company</li>
-                                    <li>Built front-end dockerized web interfaces using React, JavaScript, HTML, HAML, and CSS/SASS, implementing UI/UX improvements aligned with business requirements</li>
-                                    <li>Set up RESTful API authentication and secure web application integrations following web security best practices</li>
-                                    <li>Used D3.js alongside SQL stored procedures and database updates to build interactive data visualizations for internal operational reporting</li>
-                                    <li>Built and maintained internal tooling that monitored workflows and served 125+ users, improving team efficiency and reducing manual processes</li>
-                                    <li>Provided revenue reporting metrics tracking millions of dollars in closed loan volume using ActiveRecord and PostgreSQL queries</li>
-                                    <li>Collaborated with production, marketing, and sales teams on QA and release of software products</li>
-                                </ul>
-                            </div>
-                            <div class="work-history-item work-history-item-last">
-                                <div class="work-history-item-title">AlsoEnergy</div class="work-history-item-title">    
-                                <div class="work-history-item-subtitle">Software Engineer - (Apr. 2019 - May 2021)</div>
-                                <ul>
-                                    <li>Developed company public-facing applications using JavaScript and React supporting web and data service delivery</li>
-                                    <li>Deployed RESTful API endpoints with Node.js, C# and .NET, to serve data to front-end applications and external consumers</li>
-                                    <li>Implemented designs in both graphical and tabular formats using JavaScript and front-end libraries</li>
-                                    <li>Contributed to cloud infrastructure and deployment pipelines, improving application reliability and delivery cadence</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="projects" class="projects section">
-                    <h1>Previous Projects</h1>
-                     <div class="projects-item">
-                        <span class="clickable-link">
-                            <a href="https://github.com/tfielder">
-                                <h2>GitHub Projects</h2>
-                            </a>
-                        </span>
-                        <!--<p>A comprehensive selection of projects</p> -->
-                    </div>
-                    <!--
-                    <div class="projects-item">
-                        <span class="clickable-link">
-                            <a href="https://personal-trainer-v2-1a341046f4fb.herokuapp.com/">
-                                <h2>Personal Trainer</h2>
-                            </a>
-                        </span>
-                        <p>A sample app for recording workouts.</p>
-                    </div>
-                    <div class="projects-item">
-                        <span class="clickable-link">
-                            <a href="https://priority-planner-ruby-8d4cc20ba124.herokuapp.com/">
-                                <h2>Priority Planner</h2>
-                            </a>
-                        </span>
-                        <p>A sample app for prioritizing.</p>
-                    </div>
-                    <div class="projects-item">
-                        <span class="clickable-link">
-                            <a href="https://tfielder.github.io/number_guesser_part_deux/index.html">
-                                <h2>Number Guesser</h2>
-                            </a>
-                        </span>
-                        <p>A sample interactive number guessing app.</p>
-                    </div> -->
-                </div>
-                <div id="education" class="education section">
-                    <h1>Education</h1>
-                    <div class="education-content">
-                        <div class="education-list">
-                            <div class="education-item">
-                                <h2>Turing School of Software and Design</h2>
-                                <p>Certification in Backend Engineering</p>
-                            </div>
-                            <div class="education-item">
-                                <h2>University of Northern Colorado</h2>
-                                <p>Bachelor of Arts in International Studies</p>
-                                <p>Bachelor of Arts in Spanish</p>
-                                <p>Minor in Economics</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="interests" class="interests section">
-                    <h1>Interests</h1>
-                    <ul>
-                        <li>Traveling and Languages</li>
-                        <li>Fitness</li>
-                        <li>Economics</li>
-                        <li>Learning new things</li>
-                    </ul>
-                </div>
-                <div id="connect" class="connect section">
-                    <h1>Connect</h1>
-                    <div class="connect-item">
-                        <span class="connect-type">Email:</span>
-                        <span class="connect-data clickable-link"><a href="mailto:timfielder.developer@gmail.com">timfielder.developer@gmail.com</a></span>
-                    </div>
-                    <div class="connect-item">
-                        <span class="connect-type">Cell:</span>
-                        <span class="connect-data"><p>Available upon request</p></span>
-                    </div>
-                    <div class="connect-item">
-                        <span class="connect-type">Github:</span>
-                        <span class="connect-data clickable-link"><a href="https://github.com/tfielder">github.com/tfielder</a></span>
-                    </div>
-                    <div class="connect-item">
-                        <span class="connect-type">LinkedIn:</span>
-                        <span class="connect-data clickable-link"><a href="https://www.linkedin.com/in/timfielder/">linkedin.com/in/timfielder</a></span>
-                    </div>
-                </div>
-                <div id="footer">
-                    <p>&#169; 2026 Tim Fielder</p>
-                </div>
-            </div>
-        </div>
+
+    <!-- Aurora Canvas Background -->
+    <canvas id="aurora-canvas"></canvas>
+
+    <!-- Top Nav (mobile + fallback) -->
+    <div id="nav-bar-container">
+      <div id="nav-bar" class="topnav">
+        <a href="#home" class="nav-brand nav-bar-link" onclick="closeMenuBar()">TF</a>
+        <a href="#about" class="nav-bar-link" onclick="closeMenuBar()">About</a>
+        <a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer" class="nav-bar-link" onclick="closeMenuBar()">Resume</a>
+        <a href="#skills" class="nav-bar-link" onclick="closeMenuBar()">Skills</a>
+        <a href="#work-history" class="nav-bar-link" onclick="closeMenuBar()">Work History</a>
+        <a href="#projects" class="nav-bar-link" onclick="closeMenuBar()">Projects</a>
+        <a href="#education" class="nav-bar-link" onclick="closeMenuBar()">Education</a>
+        <a href="#connect" class="nav-bar-link" onclick="closeMenuBar()">Connect</a>
+        <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenuBar()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
+
+    <!-- Side Dot Navigation (desktop) -->
+    <nav id="dot-nav" aria-label="Section navigation">
+      <a href="#home"         class="dot-link" data-section="home">
+        <span class="dot-label">Home</span><span class="dot"></span>
+      </a>
+      <a href="#about"        class="dot-link" data-section="about">
+        <span class="dot-label">About</span><span class="dot"></span>
+      </a>
+      <a href="#skills"       class="dot-link" data-section="skills">
+        <span class="dot-label">Skills</span><span class="dot"></span>
+      </a>
+      <a href="#work-history" class="dot-link" data-section="work-history">
+        <span class="dot-label">Work History</span><span class="dot"></span>
+      </a>
+      <a href="#projects"     class="dot-link" data-section="projects">
+        <span class="dot-label">Projects</span><span class="dot"></span>
+      </a>
+      <a href="#education"    class="dot-link" data-section="education">
+        <span class="dot-label">Education</span><span class="dot"></span>
+      </a>
+      <a href="#connect"      class="dot-link" data-section="connect">
+        <span class="dot-label">Connect</span><span class="dot"></span>
+      </a>
+    </nav>
+
+    <!-- Scroll Container -->
+    <div id="scroll-container">
+
+      <!-- Hero -->
+      <section class="snap-section" id="home">
+        <div class="hero-content">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 id="glitch-name" class="hero-name">Tim Fielder</h1>
+          <h2 class="hero-title">Full-Stack Software Engineer</h2>
+          <p class="hero-location"><i class="fa fa-map-marker"></i> Denver, Colorado</p>
+          <div class="hero-actions">
+            <a href="./TimothyFielderResume.pdf" download="TimFielderResume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Resume</a>
+            <a href="#connect" class="btn btn-secondary scroll-link">Get In Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="snap-section" id="about">
+        <div class="glass-panel section-panel section-reveal">
+          <h2 class="section-title">About</h2>
+          <div class="about-content">
+            <p>
+              I'm a Full-Stack Software Engineer with 7+ years of experience building things that work — and work well.
+              My stack leans Ruby on Rails and React/TypeScript, though I've built across the full spectrum: RESTful APIs,
+              database architecture, front-end performance, and cloud infrastructure on AWS and Azure.
+            </p>
+            <p>
+              I care about code that's readable, tested, and built to last. I've taken test coverage from 65% to 94%,
+              designed greenfield applications from scratch, and contributed to systems serving hundreds of thousands of users.
+            </p>
+            <p>
+              When I'm not writing code, I'm probably traveling, hitting the gym, reading about economics,
+              or picking up a new language — human or programming.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="snap-section" id="skills">
+        <div class="glass-panel section-panel section-reveal">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 class="skill-category-title">Languages</h3>
+              <div class="skill-badges">
+                <span class="skill-badge">Ruby</span>
+                <span class="skill-badge">JavaScript</span>
+                <span class="skill-badge">TypeScript</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">SQL</span>
+                <span class="skill-badge">C#</span>
+                <span class="skill-badge">HTML</span>
+                <span class="skill-badge">CSS / SASS</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category-title">Frameworks &amp; Libraries</h3>
+              <div class="skill-badges">
+                <span class="skill-badge">Ruby on Rails</span>
+                <span class="skill-badge">React</span>
+                <span class="skill-badge">Next.js</span>
+                <span class="skill-badge">Node.js</span>
+                <span class="skill-badge">Tailwind CSS</span>
+                <span class="skill-badge">.NET</span>
+                <span class="skill-badge">RSpec</span>
+                <span class="skill-badge">D3.js</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category-title">Tools &amp; Infrastructure</h3>
+              <div class="skill-badges">
+                <span class="skill-badge">AWS</span>
+                <span class="skill-badge">Azure</span>
+                <span class="skill-badge">PostgreSQL</span>
+                <span class="skill-badge">MongoDB</span>
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Git</span>
+                <span class="skill-badge">Agile / Scrum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work History -->
+      <section class="snap-section" id="work-history">
+        <div class="glass-panel section-panel scrollable-panel section-reveal">
+          <h2 class="section-title">Work History</h2>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-company">American Financing Corporation</div>
+                <div class="timeline-role">Ruby on Rails Developer &mdash; Jan. 2026 &ndash; Present</div>
+                <ul>
+                  <li>Designing and maintaining public-facing and internal Ruby on Rails and React/TypeScript/Next.js full-stack applications for an Inc. 5000 top-50 company</li>
+                  <li>Developing a greenfield borrower portal using React, TypeScript, Ruby on Rails, and MongoDB</li>
+                  <li>Building a greenfield leads management application to streamline lead capture and routing workflows</li>
+                  <li>Implementing GEO/SEO improvements and Google Tag Manager integrations to increase organic traffic</li>
+                  <li>Accelerating development velocity by integrating AI-assisted workflows using Claude Code</li>
+                  <li>Increased test coverage from ~65% to 94% with comprehensive RSpec unit and integration tests</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-company">Arapahoe Libraries</div>
+                <div class="timeline-role">Technology Specialist &mdash; Oct. 2025 &ndash; Jan. 2026</div>
+                <ul>
+                  <li>Provided community digital services and technology support</li>
+                  <li>Designed and automated a workflow for standardized patron communication at scale</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-company">Professional Development &mdash; AI &amp; Software Engineering</div>
+                <div class="timeline-role">Self-Directed &mdash; Sep. 2024 &ndash; Oct. 2025</div>
+                <ul>
+                  <li>Completed: Building AI Agents, Hands-on AI with MCP, AI Agents with n8n, Machine Learning with Python</li>
+                  <li>Studied Clean Code (Robert C. Martin) and Design Patterns (Gang of Four)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-company">Verisys Corporation</div>
+                <div class="timeline-role">Software Engineer &mdash; Sep. 2023 &ndash; Sep. 2024</div>
+                <ul>
+                  <li>Created and maintained Ruby on Rails API microservices for 400+ healthcare organizations</li>
+                  <li>Developed PostgreSQL migrations, stored procedures, and table triggers for complex data workflows</li>
+                  <li>Implemented AWS Lambda functions for async data processing</li>
+                  <li>Supported AWS infrastructure including application monitoring and product deployments</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-company">MediaNews Group</div>
+                <div class="timeline-role">Software Engineer &mdash; Mar. 2023 &ndash; Sep. 2023</div>
+                <ul>
+                  <li>Built and maintained RESTful APIs for digital subscription and user authorization platforms</li>
+                  <li>Integrated third-party subscription platforms to support revenue growth across local news organizations</li>
+                  <li>Developed features using Ruby on Rails, JavaScript, and WordPress with front-end performance focus</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-company">American Financing Corporation</div>
+                <div class="timeline-role">Software Engineer &mdash; May 2021 &ndash; Nov. 2022</div>
+                <ul>
+                  <li>Designed Ruby on Rails web applications, RESTful APIs, C#/.NET applications, and internal reporting tools</li>
+                  <li>Built interactive data visualizations with D3.js for internal operational reporting</li>
+                  <li>Built and maintained internal tooling serving 125+ users, improving team efficiency</li>
+                  <li>Provided revenue reporting tracking millions of dollars in closed loan volume</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-company">AlsoEnergy</div>
+                <div class="timeline-role">Software Engineer &mdash; Apr. 2019 &ndash; May 2021</div>
+                <ul>
+                  <li>Developed public-facing applications using JavaScript and React</li>
+                  <li>Deployed RESTful API endpoints with Node.js, C#, and .NET</li>
+                  <li>Contributed to cloud infrastructure and deployment pipelines</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="snap-section" id="projects">
+        <div class="glass-panel section-panel section-reveal">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects-content">
+            <p class="projects-intro">More showcased projects coming soon. In the meantime, explore my work on GitHub.</p>
+            <a href="https://github.com/tfielder" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-github"></i>&nbsp; View GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="snap-section" id="education">
+        <div class="glass-panel section-panel section-reveal">
+          <h2 class="section-title">Education</h2>
+          <div class="education-list">
+            <div class="education-item">
+              <h3 class="edu-school">Turing School of Software and Design</h3>
+              <p class="edu-degree">Certification in Backend Engineering</p>
+            </div>
+            <div class="education-item">
+              <h3 class="edu-school">University of Northern Colorado</h3>
+              <p class="edu-degree">Bachelor of Arts in International Studies</p>
+              <p class="edu-degree">Bachelor of Arts in Spanish</p>
+              <p class="edu-degree">Minor in Economics</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Connect -->
+      <section class="snap-section" id="connect">
+        <div class="glass-panel section-panel section-reveal">
+          <h2 class="section-title">Connect</h2>
+          <div class="connect-list">
+            <a href="mailto:timfielder.developer@gmail.com" class="connect-item">
+              <i class="fa fa-envelope"></i>
+              <span>timfielder.developer@gmail.com</span>
+            </a>
+            <a href="https://github.com/tfielder" target="_blank" rel="noopener noreferrer" class="connect-item">
+              <i class="fa fa-github"></i>
+              <span>github.com/tfielder</span>
+            </a>
+            <a href="https://www.linkedin.com/in/timfielder/" target="_blank" rel="noopener noreferrer" class="connect-item">
+              <i class="fa fa-linkedin"></i>
+              <span>linkedin.com/in/timfielder</span>
+            </a>
+          </div>
+          <p class="connect-footer">&copy; 2026 Tim Fielder</p>
+        </div>
+      </section>
+
+    </div><!-- /scroll-container -->
+
     <script src="index.js" type="text/javascript"></script>
   </body>
 </html>
