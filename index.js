@@ -1,70 +1,114 @@
 /* ============================================================
-   Particle Background — Flowing Nebula
+   Galaxy / Star Field Background
    ============================================================ */
-tsParticles.load("tsparticles", {
-  background: {
-    color: { value: "#060b18" }
-  },
-  fpsLimit: 60,
-  interactivity: {
-    detectsOn: "window",
-    events: {
-      onHover: { enable: true, mode: "bubble" }
-    },
-    modes: {
-      bubble: {
-        distance: 180,
-        size: 5,
-        duration: 2,
-        opacity: 0.8
-      }
+(function () {
+  const canvas = document.getElementById('aurora-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const BG          = '#060b18';
+  const STAR_COUNT  = 300;
+
+  // Nebula blobs — soft color clouds painted behind stars
+  const NEBULAE = [
+    { cx: 0.18, cy: 0.28, r: 0.38, color: [155,  93, 229], alpha: 0.055 }, // violet
+    { cx: 0.78, cy: 0.62, r: 0.32, color: [0,   255, 135], alpha: 0.040 }, // emerald
+    { cx: 0.52, cy: 0.12, r: 0.28, color: [75,  238, 208], alpha: 0.045 }, // teal
+    { cx: 0.88, cy: 0.18, r: 0.22, color: [120,  60, 220], alpha: 0.050 }, // deep violet
+    { cx: 0.35, cy: 0.80, r: 0.25, color: [190, 150, 255], alpha: 0.035 }, // lavender
+  ];
+
+  // Star color palette — mostly white/blue-white, rare color tints
+  const STAR_COLORS = [
+    [255, 255, 255],
+    [255, 255, 255],
+    [255, 255, 255],
+    [255, 255, 255],
+    [210, 225, 255],  // blue-white
+    [210, 225, 255],
+    [75,  238, 208],  // teal
+    [155,  93, 229],  // violet
+    [190, 150, 255],  // lavender
+  ];
+
+  let w, h, stars = [];
+
+  function rgba(c, a) {
+    return `rgba(${c[0]},${c[1]},${c[2]},${a.toFixed(3)})`;
+  }
+
+  function Star() {
+    this.x      = Math.random() * w;
+    this.y      = Math.random() * h;
+    this.r      = Math.random() < 0.82 ? 0.3 + Math.random() * 0.7   // small
+                                        : 1.1 + Math.random() * 1.0;  // occasional larger
+    this.color  = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
+    this.alpha  = 0.35 + Math.random() * 0.65;
+    this.twinkle   = Math.random() < 0.30;
+    this.phase     = Math.random() * Math.PI * 2;
+    this.pulseHz   = 0.012 + Math.random() * 0.018;
+    this.hasGlow   = this.r > 1.0;
+    this.glowR     = this.r * 7;
+  }
+
+  Star.prototype.draw = function () {
+    if (this.twinkle) this.phase += this.pulseHz;
+    const pulse = this.twinkle ? Math.sin(this.phase) * 0.5 + 0.5 : 1;
+    const a     = this.alpha * (this.twinkle ? 0.25 + pulse * 0.75 : 1);
+
+    if (this.hasGlow) {
+      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.glowR);
+      g.addColorStop(0, rgba(this.color, a * 0.55));
+      g.addColorStop(1, rgba(this.color, 0));
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.glowR, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
     }
-  },
-  particles: {
-    color: {
-      value: ["#00FF87", "#9B5DE5", "#4beed0", "#feda4a", "#ffffff"]
-    },
-    links: { enable: false },
-    move: {
-      direction: "none",
-      enable: true,
-      outModes: { default: "out" },
-      random: true,
-      speed: { min: 0.1, max: 0.55 },
-      straight: false,
-      warp: false
-    },
-    number: {
-      density: { enable: true, area: 850 },
-      value: 110
-    },
-    opacity: {
-      value: { min: 0.04, max: 0.55 },
-      animation: {
-        enable: true,
-        minimumValue: 0.04,
-        speed: 0.4,
-        sync: false
-      }
-    },
-    shape: { type: "circle" },
-    size: {
-      value: { min: 1, max: 3.5 },
-      animation: {
-        enable: true,
-        minimumValue: 0.5,
-        speed: 0.8,
-        sync: false
-      }
-    },
-    wobble: {
-      distance: 8,
-      enable: true,
-      speed: { angle: 8, move: 8 }
-    }
-  },
-  detectRetina: true
-});
+
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = rgba(this.color, a);
+    ctx.fill();
+  };
+
+  function drawNebulae() {
+    NEBULAE.forEach(n => {
+      const cx = n.cx * w;
+      const cy = n.cy * h;
+      const r  = n.r  * Math.min(w, h);
+      const g  = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+      g.addColorStop(0, rgba(n.color, n.alpha));
+      g.addColorStop(1, rgba(n.color, 0));
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    });
+  }
+
+  function init() {
+    stars = Array.from({ length: STAR_COUNT }, () => new Star());
+  }
+
+  function loop() {
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, w, h);
+    drawNebulae();
+    stars.forEach(s => s.draw());
+    requestAnimationFrame(loop);
+  }
+
+  function resize() {
+    w = canvas.width  = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  init();
+  requestAnimationFrame(loop);
+})();
 
 
 /* ============================================================
